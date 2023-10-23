@@ -1,0 +1,44 @@
+interface Device {
+    void plugIn();
+}
+
+class Laptop implements Device {
+    @Override
+    public void plugIn() {
+        System.out.println("Laptop charging");
+    }
+}
+
+class Refrigerator implements Device {
+    @Override
+    public void plugIn() {
+        System.out.println("Refrigerator starting cooling");
+    }
+}
+
+class SmartphoneCharger implements Device {
+    @Override
+    public void plugIn() {
+        System.out.println("Smartphone charger charging");
+    }
+}
+
+class PowerOutlet {
+    void plugIn(Device device) {
+        device.plugIn();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        PowerOutlet powerOutlet = new PowerOutlet();
+
+        Laptop laptop = new Laptop();
+        Refrigerator refrigerator = new Refrigerator();
+        SmartphoneCharger smartphoneCharger = new SmartphoneCharger();
+
+        powerOutlet.plugIn(laptop);
+        powerOutlet.plugIn(refrigerator);
+        powerOutlet.plugIn(smartphoneCharger);
+    }
+}
