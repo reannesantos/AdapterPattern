@@ -1,0 +1,23 @@
+@startuml
+interface Plug {
+    + unplug(): void
+}
+
+interface PowerOutlet {
+    + connect(plug: Plug): void
+}
+
+class Laptop implements Plug {
+    + unplug(): void
+    + connect(outlet: PowerOutlet): void
+}
+
+class WallOutlet implements PowerOutlet {
+    + connect(plug: Plug): void
+}
+
+class DeskOutlet implements PowerOutlet {
+    + connect(plug: Plug): void
+}
+
+@enduml
